@@ -1,6 +1,5 @@
 
 module Icache (
-    input clk,
     input [32-1: 0] pc,
     output reg [32-1: 0] instr_IF
         );

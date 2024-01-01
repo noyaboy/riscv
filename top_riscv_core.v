@@ -11,17 +11,21 @@ module top_riscv_core (
     wire [32-1: 0] PC_branch_M;
     wire [32-1: 0] alu_result_M;
     wire [32-1: 0] rd_wdata_RB;
-    wire [1:0] PMAItoReg_M;
     wire [31:0] imm_M;
     wire branch_valid;
     wire jalr_M;
     wire [31:0] pc_M;
     wire [32-1: 0] mem_rdata_M;
+    wire [1:0] PMAItoReg_RB;
+    wire [31:0] imm_RB;
+    wire [31:0] mem_rdata_RB;
+    wire [31:0] alu_result_RB;
+    wire [31:0] pc_RB;
 
     assign pc_IF = pc + 4;
-    assign rd_wdata_RB = (PMAItoReg_M == 2'd3)? pc_M:
-        (PMAItoReg_M == 2'd2)? mem_rdata_M:
-        (PMAItoReg_M == 2'd1)? alu_result_M: imm_M;
+    assign rd_wdata_RB = (PMAItoReg_RB == 2'd3)? pc_RB:
+        (PMAItoReg_RB == 2'd2)? mem_rdata_RB:
+        (PMAItoReg_RB == 2'd1)? alu_result_RB: imm_RB;
 
     PC PC (
         .clk(clk),
@@ -35,7 +39,7 @@ module top_riscv_core (
     );
 
     Icache (
-        .clk(clk), .pc(pc), .instr_IF(instr_IF)
+        .pc(pc), .instr_IF(instr_IF)
     );
 
     ///////////// IF_STAGE && RB_STAGE /////////// 
@@ -80,7 +84,7 @@ module top_riscv_core (
     wire rd_wen_RB;
 
     control_unit control_unit (
-        .clk(clk), .rst(rst), .instr_ID(instr_ID), .ALU_src(ALU_src_ID), .ALU_ctrl(ALU_ctrl_ID),
+        .instr_ID(instr_ID), .ALU_src(ALU_src_ID), .ALU_ctrl(ALU_ctrl_ID),
         .branch(branch_ID), .MemWrite(MemWrite_ID), .jal(jal_ID),
         .jalr(jalr_ID), .PMAItoReg(PMAItoReg_ID), .rd_wen(rd_wen_ID)
     );
@@ -157,7 +161,6 @@ module top_riscv_core (
     ////////////////// EX_STAGE ////////////////// 
 
     wire [32-1 :0] opr2;
-    wire [4-1 :0]  alu_ctrl_EX;
     wire zero_EX;
     wire [32-1 :0] alu_result_EX;
     wire [31:0] PC_branch_EX;
@@ -167,7 +170,7 @@ module top_riscv_core (
 
     ALU ALU (
         .opr1(rs1_rdata_EX), .opr2(opr2), 
-        .alu_ctrl(alu_ctrl_EX), .zero(zero_EX), 
+        .alu_ctrl(ALU_ctrl_EX), .zero(zero_EX), 
         .alu_out(alu_result_EX)
     );
 
@@ -181,6 +184,7 @@ module top_riscv_core (
     wire MemWrite_M;
     wire jal_M;
     wire rd_wen_M;
+    wire [1:0] PMAItoReg_M;
     EX_M EX_M(
         .clk(clk),
         .PC_EX(pc_EX),
@@ -230,5 +234,28 @@ module top_riscv_core (
     );
 
     ////////////////// M_STAGE /////////////////// 
+
+    M_RB M_RB(
+        .clk(clk),
+        .PMAItoReg_M(PMAItoReg_M),
+        .rd_wen_M(rd_wen_M),
+
+        .imm_M(imm_M),
+        .mem_rdata_M(mem_rdata_M),
+
+        .alu_result_M(alu_result_M),
+        .PC_M(PC_M),
+        .rd_waddr_M(rd_waddr_M),
+
+        .PMAItoReg_RB(PMAItoReg_RB),
+        .rd_wen_RB(rd_wen_RB),
+
+        .imm_RB(imm_RB),
+        .mem_rdata_RB(mem_rdata_RB),
+
+        .alu_result_RB(alu_result_RB),
+        .PC_RB(pc_RB),
+        .rd_waddr_RB(rd_waddr_RB)
+    );
 
 endmodule
