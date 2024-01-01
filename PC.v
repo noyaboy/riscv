@@ -7,7 +7,7 @@ module PC(
     input [31:0] alu_result_M,
     input branch_valid,
     input jalr_M,
-    output [31:0] PC
+    output reg [31:0] PC
 );
 
 reg PC_temp;

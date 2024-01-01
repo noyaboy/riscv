@@ -1,6 +1,7 @@
 module IF_ID(
+    input clk,
     input [31:0] PC_IF,
-    input [31:0] insrt_IF,
+    input [31:0] instr_IF,
     output reg [31:0] PC_ID,
     output reg [31:0] instr_ID,
     output [4:0] rs1_raddr,

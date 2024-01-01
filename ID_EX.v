@@ -1,4 +1,5 @@
 module ID_EX(
+    input clk,
     input [31:0] PC_ID,
     input [31:0] imm_ID,
     input [31:0] rs1_rdata_ID,
@@ -16,22 +17,22 @@ module ID_EX(
     input [1:0] PMAItoReg_ID,
     input rd_wen_ID,
 
-    output [31:0] PC_EX,
-    output [31:0] imm_EX,
-    output [31:0] rs1_rdata_EX,
-    output [31:0] rs2_rdata_EX,
-    output [4:0] rd_waddr_EX,
+    output reg [31:0] PC_EX,
+    output reg [31:0] imm_EX,
+    output reg [31:0] rs1_rdata_EX,
+    output reg [31:0] rs2_rdata_EX,
+    output reg [4:0] rd_waddr_EX,
     
-    output ALU_src_EX,
-    output [3:0] ALU_ctrl_EX,
+    output reg ALU_src_EX,
+    output reg [3:0] ALU_ctrl_EX,
     
-    output branch_EX,
-    output MemWrite_EX,
-    output jal_EX,
-    output jalr_EX,
+    output reg branch_EX,
+    output reg MemWrite_EX,
+    output reg jal_EX,
+    output reg jalr_EX,
 
-    output [1:0] PMAItoReg_EX,
-    output rd_wen_EX
+    output reg [1:0] PMAItoReg_EX,
+    output reg rd_wen_EX
 );
 
 always@(posedge clk) begin

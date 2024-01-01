@@ -1,4 +1,5 @@
 module EX_M(
+    input clk,
     input [31:0] PC_EX,
     input [31:0] PC_branch_EX,
     input [31:0] imm_EX,
@@ -16,22 +17,22 @@ module EX_M(
     input [1:0] PMAItoReg_EX,
     input rd_wen_EX,
 
-    output [31:0] PC_M,
-    output [31:0] PC_branch_M,
-    output [31:0] imm_M,
-    output [31:0] rs2_rdata_M,
-    output [4:0] rd_waddr_M,
+    output reg [31:0] PC_M,
+    output reg [31:0] PC_branch_M,
+    output reg [31:0] imm_M,
+    output reg [31:0] rs2_rdata_M,
+    output reg [4:0] rd_waddr_M,
     
-    output zero_M,
-    output [31:0] alu_result_M,
+    output reg zero_M,
+    output reg [31:0] alu_result_M,
 
-    output branch_M,
-    output MemWrite_M,
-    output jal_M,
-    output jalr_M,
+    output reg branch_M,
+    output reg MemWrite_M,
+    output reg jal_M,
+    output reg jalr_M,
 
-    output [1:0] PMAItoReg_M,
-    output rd_wen_M
+    output reg [1:0] PMAItoReg_M,
+    output reg rd_wen_M
 );
 
 always@(posedge clk) begin
