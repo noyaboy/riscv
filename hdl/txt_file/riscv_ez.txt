@@ -1,0 +1,45 @@
+addi x1, x0, 15
+addi x3, x0, 20
+NOP
+NOP
+NOP
+addi x1, x1, 5
+NOP
+NOP
+NOP
+NOP
+beq x1, x3, -8
+NOP
+NOP
+NOP
+addi x3, x3, 200
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP

@@ -1,0 +1,49 @@
+addi x1, x0, 15
+addi x3, x0, 20
+NOP
+NOP
+NOP
+add x4, x3, x1
+NOP
+NOP
+NOP
+jal x1, 2
+NOP
+NOP
+NOP
+sw x5, 4(x0)
+NOP
+lw x6, 4(x0)
+NOP
+NOP
+NOP
+addi x7, x6, 10
+addi x8, x6, 20
+NOP
+NOP
+slli x9, x7, 2
+srli x10, x8, 1
+sw x7, 4(x0)
+sw x8, 8(x0)
+sw x9, 12(x0)
+sw x10, 16(x0)
+NOP
+lw x1, 4(x0)
+lw x2, 8(x0)
+lw x3, 12(x0)
+lw x4, 16(x0)
+sub x5, x9, x10
+and x6, x9, x10
+or x7, x9, x10
+or x8, x9, x10
+NOP
+NOP
+beq x4, x10, -16
+NOP
+NOP
+NOP
+NOP
+add x4, x2, x1
+sub x5, x8, x10
+sub x7, x10, x8
+NOP
