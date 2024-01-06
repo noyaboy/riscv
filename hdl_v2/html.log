@@ -1,0 +1,19 @@
+SpyGlass Predictive Analyzer(R) - SpyGlass_vR-2020.12-SP2
+All Rights Reserved. Use, disclosure or duplication 
+without prior written permission of Synopsys Inc. is prohibited.
+Technical support: email spyglass_support@synopsys.com 
+
+Creating 'html' reports using config file '/tmp/config_1780'
+##cwd         : /home/u109/u109022210/ICLAB/Final_Project/hdl
+##system      : Linux pc407 3.10.0-1160.95.1.el7.x86_64 #1 SMP Mon Jul 24 13:59:37 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+##Date & Time : Thu Jan  4 02:20:52 2024
+Checkout 'dashboard' license at Thu Jan  4 02:20:52 2024 
+Checkout 'dashboard' license completed at Thu Jan  4 02:20:52 2024 
+Generating HTML report started at Thu Jan  4 02:20:52 2024 
+WARNING: HTML Report creation failed as no executed goal found 
+Checkin 'dashboard' license at Thu Jan  4 02:20:52 2024 
+----------------------------------------------------------------
+Report 'html' creation failed.
+----------------------------------------------------------------
+
+SpyGlass Exit Code 7
