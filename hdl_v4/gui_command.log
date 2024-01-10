@@ -1,0 +1,111 @@
+read_file -type verilog {Def.v top_riscv_core.v IF_ID.v IF_stage.v imm_gen.v M_RB.v nop_mux.v PC.v regfile.v stall_unit.v Icache.v ID_EX.v ALU.v Control.v Dcache.v EX_M.v forward_unit.v}
+# Started at 01:35:06, Completed at 01:35:13 (Elapsed time = 00:00:02.619)
+
+set_option ignorefile Icache.v
+# Started at 01:35:21, Completed at 01:35:21 (Elapsed time = 00:00:00.009)
+
+set_option ignorefile Dcache.v
+# Started at 01:35:24, Completed at 01:35:24 (Elapsed time = 00:00:00.009)
+
+current_goal lint/lint_rtl -alltop
+# Started at 01:35:35, Completed at 01:35:46 (Elapsed time = 00:00:04.080)
+
+run_goal
+# Started at 01:35:46, Completed at 01:36:15 (Elapsed time = 00:00:12.610)
+
+current_goal lint/lint_turbo_rtl -alltop
+# Started at 01:36:15, Completed at 01:36:21 (Elapsed time = 00:00:03.000)
+
+run_goal
+# Started at 01:36:21, Completed at 01:36:29 (Elapsed time = 00:00:05.550)
+
+current_goal lint/lint_functional_rtl -alltop
+# Started at 01:36:29, Completed at 01:36:31 (Elapsed time = 00:00:01.589)
+
+run_goal
+# Started at 01:36:31, Completed at 01:36:37 (Elapsed time = 00:00:03.899)
+
+current_goal lint/lint_abstract -alltop
+# Started at 01:36:37, Completed at 01:36:40 (Elapsed time = 00:00:01.079)
+
+run_goal
+# Started at 01:36:40, Completed at 01:36:51 (Elapsed time = 00:00:07.890)
+
+current_goal adv_lint/adv_lint_struct -alltop
+# Started at 01:36:51, Completed at 01:36:53 (Elapsed time = 00:00:01.619)
+
+run_goal
+# Started at 01:36:54, Completed at 01:36:57 (Elapsed time = 00:00:02.980)
+
+current_goal adv_lint/adv_lint_verify -alltop
+# Started at 01:36:57, Completed at 01:37:00 (Elapsed time = 00:00:01.450)
+
+run_goal
+# Started at 01:37:00, Completed at 01:37:06 (Elapsed time = 00:00:03.170)
+
+current_goal lint/lint_rtl -alltop
+# Started at 01:37:06, Completed at 01:37:09 (Elapsed time = 00:00:02.340)
+
+gui_select_message -rule STX_VE_481 -msg {Syntax error near ( input )}
+# Started at 01:37:18, Completed at 01:37:18 (Elapsed time = 00:00:00.000)
+
+close_project -force
+# Started at 01:38:16, Completed at 01:38:18 (Elapsed time = 00:00:00.809)
+
+new_project spyglass-1 -force
+# Started at 01:38:19, Completed at 01:38:23 (Elapsed time = 00:00:02.519)
+
+read_file -type verilog {Def.v PC.v regfile.v stall_unit.v top_riscv_core.v imm_gen.v M_RB.v nop_mux.v EX_M.v forward_unit.v Icache.v ID_EX.v IF_ID.v Dcache.v ALU.v Control.v}
+# Started at 01:38:54, Completed at 01:38:54 (Elapsed time = 00:00:00.010)
+
+set_option ignorefile Dcache.v
+# Started at 01:38:58, Completed at 01:38:58 (Elapsed time = 00:00:00.010)
+
+set_option ignorefile Icache.v
+# Started at 01:39:02, Completed at 01:39:02 (Elapsed time = 00:00:00.010)
+
+current_goal lint/lint_rtl -alltop
+# Started at 01:39:06, Completed at 01:39:09 (Elapsed time = 00:00:02.189)
+
+run_goal
+# Started at 01:39:09, Completed at 01:39:23 (Elapsed time = 00:00:10.689)
+
+current_goal lint/lint_turbo_rtl -alltop
+# Started at 01:39:23, Completed at 01:39:26 (Elapsed time = 00:00:02.820)
+
+run_goal
+# Started at 01:39:26, Completed at 01:39:35 (Elapsed time = 00:00:07.640)
+
+current_goal lint/lint_functional_rtl -alltop
+# Started at 01:39:35, Completed at 01:39:37 (Elapsed time = 00:00:01.549)
+
+run_goal
+# Started at 01:39:37, Completed at 01:39:42 (Elapsed time = 00:00:03.839)
+
+current_goal lint/lint_abstract -alltop
+# Started at 01:39:42, Completed at 01:39:45 (Elapsed time = 00:00:01.060)
+
+run_goal
+# Started at 01:39:45, Completed at 01:39:59 (Elapsed time = 00:00:08.719)
+
+current_goal adv_lint/adv_lint_struct -alltop
+# Started at 01:39:59, Completed at 01:40:02 (Elapsed time = 00:00:01.579)
+
+run_goal
+# Started at 01:40:02, Completed at 01:40:06 (Elapsed time = 00:00:01.780)
+
+current_goal adv_lint/adv_lint_verify -alltop
+# Started at 01:40:06, Completed at 01:40:08 (Elapsed time = 00:00:01.459)
+
+run_goal
+# Started at 01:40:08, Completed at 01:40:13 (Elapsed time = 00:00:01.799)
+
+current_goal lint/lint_rtl -alltop
+# Started at 01:40:13, Completed at 01:40:16 (Elapsed time = 00:00:02.320)
+
+run_goal
+# Started at 01:42:19, Completed at 01:42:41 (Elapsed time = 00:00:10.879)
+
+run_goal
+# Started at 02:20:29, Completed at 02:20:49 (Elapsed time = 00:00:10.650)
+

@@ -1,0 +1,80 @@
+addi x0, x0, 733
+addi x1, x0, 1194
+addi x2, x0, 1826
+addi x3, x0, 1859
+addi x4, x0, 447
+addi x5, x0, 1033
+addi x6, x0, 285
+addi x7, x0, 577
+addi x8, x0, 286
+addi x9, x0, 1547
+addi x10, x0, 194
+addi x11, x0, 1266
+addi x12, x0, 1637
+addi x13, x0, 513
+addi x14, x0, 1863
+addi x15, x0, 1090
+addi x16, x0, 1444
+addi x17, x0, 1659
+addi x18, x0, 1232
+addi x19, x0, 1847
+addi x20, x0, 300
+addi x21, x0, 635
+addi x22, x0, 202
+addi x23, x0, 1494
+addi x24, x0, 151
+addi x25, x0, 1840
+addi x26, x0, 1741
+addi x27, x0, 1400
+addi x28, x0, 676
+addi x29, x0, 966
+addi x30, x0, 1146
+addi x31, x0, 206
+NOP
+NOP
+NOP
+and x12, x14, x11
+sltu x11, x12, x14
+slti x14, x11, 12
+slti x12, x14, 11
+sltiu x11, x12, 14
+lui x9, 318046
+auipc x26, 12
+lui x2, 318046
+auipc x9, 12
+lui x26, 318046
+add x30, x18, x30
+lw x30, 24(x0)
+sra x18, x30, x30
+lw x18, 24(x0)
+slti x30, x30, 18
+and x27, x28, x11
+sb x27, 0(x0)
+xori x28, x11, 27
+sw x28, 0(x0)
+addi x30, x19, -5
+addi x30, x30, 5
+beq x30, x19, 12
+ori x31, x8, 24
+addi x30, x19, -5
+addi x30, x30, 5
+jal x19, 32
+sltiu x30, x8, 24
+addi x30, x19, -5
+addi x30, x30, 5
+jalr x19, 564(x0)
+slti x30, x8, 24
+addi x30, x19, 0
+addi x30, x30, 5
+beq x30, x19, 12
+xori x31, x8, 24
+lb x11, 24(x0)
+sw x11, 0(x0)
+sw x18, 4(x0)
+lb x10, 4(x0)
+beq x10, x18, 12
+sltiu x31, x10, 24
+sb x18, 4(x0)
+lb x10, 4(x0)
+bne x10, x18, 12
+xori x31, x10, 24
